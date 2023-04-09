@@ -3,7 +3,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const multer = require('multer');
+const multer = require("multer");
+const path = require("path");
 
 // const validator = require("express-validator");
 
@@ -12,6 +13,9 @@ const router = require("./routes/index");
 const { API_ENDPOINT_NOT_FOUND_ERR } = require("./utils/constant");
 
 const server = express();
+
+server.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
 server.use(cors());
 server.use(
   bodyParser.urlencoded({
@@ -21,8 +25,6 @@ server.use(
 server.use(bodyParser.json());
 
 server.use(router);
-
-
 
 // Page not found error handling middleware
 

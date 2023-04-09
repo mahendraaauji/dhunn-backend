@@ -7,17 +7,12 @@ const userSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-
     contactNumber: {
       type: String,
       required: true,
       trim: true,
       unique: true,
     },
-    // playlist:
-    // album:
-    // likedSong:
-
     likedSong: [
       {
         songId: String,
@@ -27,7 +22,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-
     imageURL: {
       type: String,
       required: true,
